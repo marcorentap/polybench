@@ -11,7 +11,8 @@
 # define _GEMM_H
 
 /* Default to LARGE_DATASET. */
-# if !defined(MINI_DATASET) && !defined(SMALL_DATASET) && !defined(MEDIUM_DATASET) && !defined(LARGE_DATASET) && !defined(EXTRALARGE_DATASET)
+# if !defined(MINI_DATASET) && !defined(SMALL_DATASET) && !defined(MEDIUM_DATASET) && !defined (EXTRAMEDIUM_DATASET) && \
+     !defined(LARGE_DATASET) && !defined(EXTRALARGE_DATASET)
 #  define LARGE_DATASET
 # endif
 
@@ -33,6 +34,12 @@
 #   define NI 200
 #   define NJ 220
 #   define NK 240
+#  endif
+
+#  ifdef EXTRAMEDIUM_DATASET
+#   define NI 400
+#   define NJ 440
+#   define NK 480
 #  endif
 
 #  ifdef LARGE_DATASET
