@@ -47,7 +47,7 @@ double polybench_program_total_flops = 0;
     NULL
   };
   int polybench_papi_eventset;
-  int polybench_papi_eventlist[POLYBENCH_MAX_NB_PAPI_COUNTERS];
+  unsigned int polybench_papi_eventlist[POLYBENCH_MAX_NB_PAPI_COUNTERS];
   long_long polybench_papi_values[POLYBENCH_MAX_NB_PAPI_COUNTERS];
 
 #endif
@@ -165,9 +165,7 @@ void test_fail(char *file, int line, char *call, int retval)
     fprintf (stdout,"Error: %s\n", call);
   else
     {
-      char errstring[PAPI_MAX_STR_LEN];
-      PAPI_perror (retval, errstring, PAPI_MAX_STR_LEN);
-      fprintf (stdout,"Error in %s: %s\n", call, errstring);
+      fprintf (stdout,"Error in %s: %s\n", call, PAPI_strerror(retval));
     }
   fprintf (stdout,"\n");
   if (PAPI_is_initialized ())

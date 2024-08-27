@@ -180,7 +180,7 @@
 
 /* PAPI support. */
 # ifdef POLYBENCH_PAPI
-extern const unsigned int polybench_papi_eventlist[];
+extern unsigned int polybench_papi_eventlist[];
 #  undef polybench_start_instruments
 #  undef polybench_stop_instruments
 #  undef polybench_print_instruments
